@@ -3,7 +3,8 @@ import styles from "./styles.module.css";
 export default function ChartExchange() {
   return (
     <div>
-      <div>oi</div>
+      <h2>Taxa de câmbio</h2>
+      <div></div>
     </div>
   );
 }

@@ -24,12 +24,16 @@
 }
 
 .value {
-  padding: 0px;
+  padding: 0px 10px;
   gap: 8px;
 
   border: 1px transparent;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+}
+
+.value:focus {
+  outline: none;
 }
 
 .exchange {
