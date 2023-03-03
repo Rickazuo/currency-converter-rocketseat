@@ -50,6 +50,10 @@
   background: #ede9fe;
 }
 
+.exchange:focus {
+  outline: none;
+}
+
 .divider {
   border: 1px solid #94a3b8;
   /* width: 0.0025rem; */
