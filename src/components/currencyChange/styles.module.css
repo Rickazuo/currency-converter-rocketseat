@@ -1,0 +1,58 @@
+.slotsSwitch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+.currency {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+
+  border: 1px solid #94a3b8;
+  border-radius: 10px;
+}
+
+.currency:hover {
+  border: 2px solid #7c3aed;
+}
+
+.value {
+  padding: 0px 10px;
+  gap: 8px;
+
+  border: 1px transparent;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.value:focus {
+  outline: none;
+}
+
+.exchange {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+
+  border: 1px transparent;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  background: #ede9fe;
+}
+
+.divider {
+  border: 1px solid #94a3b8;
+  /* width: 0.0025rem; */
+  height: 27px;
+  background-color: #94a3b8;
+}
