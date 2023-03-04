@@ -82,24 +82,28 @@ function HomePage() {
       [slot]: { ...currency[slot], [subslot]: value },
     };
 
-    const index = currencyOptions.findIndex(
-      (currency) => currency.currentCurrency === tempCurrency[slot].currency
-    );
-
     const calculateCurrency = (valueToCalculate, currencyValue) =>
       value === "" || valueToCalculate === ""
         ? 0
         : parseFloat(valueToCalculate) * currencyValue;
 
     if (slot === "first") {
+      const index = currencyOptions.findIndex(
+        (currency) => currency.currentCurrency === tempCurrency.second.currency
+      );
+
       tempCurrency.second.value = calculateCurrency(
         tempCurrency.first.value,
-        currencyOptions[index].rate[tempCurrency.second.currency]
+        currencyOptions[index].rate[tempCurrency.first.currency]
       );
     } else {
+      const index = currencyOptions.findIndex(
+        (currency) => currency.currentCurrency === tempCurrency.first.currency
+      );
+
       tempCurrency.first.value = calculateCurrency(
         tempCurrency.second.value,
-        currencyOptions[index].rate[tempCurrency.first.currency]
+        currencyOptions[index].rate[tempCurrency.second.currency]
       );
     }
 
