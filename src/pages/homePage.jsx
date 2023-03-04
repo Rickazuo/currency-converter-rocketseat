@@ -17,37 +17,37 @@ const currencyOptions = [
     {
         currentCurrency: "USD",
         rate: {
-            BRL: 2,
-            EUR: 3,
-            GBP: 5,
+            BRL: 0.192471,
+            EUR: 1.0597,
+            GBP: 1.2036,
             CHF: 1.064541,
         },
     },
     {
         currentCurrency: "EUR",
         rate: {
-            USD: 2,
-            BRL: 3,
-            GBP: 5,
-            CHF: 3,
+            USD: 0.9436,
+            BRL: 0.180928,
+            GBP: 1.13095,
+            CHF: 1.00409,
         },
     },
     {
         currentCurrency: "GBP",
         rate: {
-            USD: 2,
-            EUR: 3,
-            BRL: 5,
-            CHF: 3,
+            USD: 0.8308,
+            EUR: 0.88442,
+            BRL: 0.159874,
+            CHF: 0.8875,
         },
     },
     {
         currentCurrency: "CHF",
         rate: {
-            USD: 2,
-            EUR: 3,
-            GBP: 5,
-            BRL: 3,
+            USD: 0.9362,
+            EUR: 0.9955,
+            GBP: 1.1275,
+            BRL: 0.1803,
         },
     },
 ];
