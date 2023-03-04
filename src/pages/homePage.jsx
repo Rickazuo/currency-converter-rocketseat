@@ -76,6 +76,8 @@ function HomePage() {
     second: { value: "", currency: "USD" },
   });
 
+  const [chartHistoric, setChartHistoric] = useState(0);
+
   const changeCurrency = (slot, subslot, value) => {
     const tempCurrency = {
       ...currency,
@@ -128,8 +130,14 @@ function HomePage() {
           currencyOptions={currencyOptions}
           reverseCurrency={reverseCurrency}
         />
-        <h2 style={{ marginTop: "64px", marginBottom: 0 }}>Taxa de câmbio</h2>
-        <HistoricChart />
+        <button
+          onClick={() => setChartHistoric(currency.second.value)}
+          className={styles.button}
+        >
+          Adicionar no histórico
+        </button>
+        <h2 style={{ marginBottom: 0 }}>Taxa de câmbio</h2>
+        <HistoricChart chartHistoric={chartHistoric} />
       </div>
       <Footer />
     </div>
