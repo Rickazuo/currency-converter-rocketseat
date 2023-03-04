@@ -107,6 +107,9 @@ function HomePage() {
                     currencyOptions={currencyOptions}
                     reverseCurrency={reverseCurrency}
                 />
+                <h2 style={{ marginTop: "64px", marginBottom: 0 }}>
+                    Taxa de câmbio
+                </h2>
                 <HistoricChart />
             </div>
         </div>
