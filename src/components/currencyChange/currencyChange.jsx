@@ -43,9 +43,7 @@ export default function CurrencyChange({
             <div className={styles.divider}></div>
             <CustomSelect
               value={currency.second.currency}
-              onChange={(e) =>
-                changeCurrency("second", "currency", e.target.value)
-              }
+              onChange={(value) => changeCurrency("second", "currency", value)}
               id="second-currency-selector"
               options={currencyOptions}
             />

@@ -10,6 +10,7 @@ import unitedKingdom from "../assets/unitedKingdom.png";
 import brazil from "../assets/brazil.png";
 import europeanUnion from "../assets/europeanUnion.png";
 import unitedStates from "../assets/unitedStates.png";
+import Footer from "../components/footer/footer";
 
 const currencyOptions = [
   {
@@ -71,8 +72,8 @@ const currencyOptions = [
 
 function HomePage() {
   const [currency, setCurrency] = useState({
-    first: { value: 0, currency: "BRL" },
-    second: { value: 5.1932, currency: "USD" },
+    first: { value: "", currency: "BRL" },
+    second: { value: "", currency: "USD" },
   });
 
   const changeCurrency = (slot, subslot, value) => {
@@ -86,7 +87,9 @@ function HomePage() {
     );
 
     const calculateCurrency = (valueToCalculate, currencyValue) =>
-      value === "" ? 0 : parseFloat(valueToCalculate) * currencyValue;
+      value === "" || valueToCalculate === ""
+        ? 0
+        : parseFloat(valueToCalculate) * currencyValue;
 
     if (slot === "first") {
       tempCurrency.second.value = calculateCurrency(
@@ -114,7 +117,7 @@ function HomePage() {
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.containerConversor}>
         <CurrencyChange
           currency={currency}
           changeCurrency={changeCurrency}
@@ -124,6 +127,7 @@ function HomePage() {
         <h2 style={{ marginTop: "64px", marginBottom: 0 }}>Taxa de câmbio</h2>
         <HistoricChart />
       </div>
+      <Footer />
     </div>
   );
 }
