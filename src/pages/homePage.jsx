@@ -54,8 +54,8 @@ const currencyOptions = [
 
 function HomePage() {
     const [currency, setCurrency] = useState({
-        first: { value: 1000, currency: "BRL" },
-        second: { value: 5193.2, currency: "USD" },
+        first: { value: 0, currency: "BRL" },
+        second: { value: 5.1932, currency: "USD" },
     });
 
     const changeCurrency = (slot, subslot, value) => {
@@ -82,6 +82,22 @@ function HomePage() {
         setCurrency(tempCurrency);
     };
 
+    const reverseCurrency = () => {
+        const tempCurrency = {
+            first: {
+                value: currency.second.value,
+                currency: currency.second.currency,
+            },
+            second: {
+                value: currency.first.value,
+                currency: currency.first.currency,
+            },
+        };
+
+        setCurrency(tempCurrency);
+    };
+
+    console.log(currency);
     return (
         <div className={styles.container}>
             <div>
@@ -89,6 +105,7 @@ function HomePage() {
                     currency={currency}
                     changeCurrency={changeCurrency}
                     currencyOptions={currencyOptions}
+                    reverseCurrency={reverseCurrency}
                 />
                 <HistoricChart />
             </div>

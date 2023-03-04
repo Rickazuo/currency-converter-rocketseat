@@ -5,6 +5,7 @@ export default function CurrencyChange({
     currency,
     changeCurrency,
     currencyOptions,
+    reverseCurrency,
 }) {
     return (
         <div>
@@ -24,9 +25,13 @@ export default function CurrencyChange({
                         className={styles.exchange}
                         defaultValue={currency.first.currency}
                         id="first-currency-selector"
-                        onChange={(e) =>
-                            changeCurrency("first", "currency", e.target.value)
-                        }
+                        onChange={(e) => {
+                            if (e.target.value === currency.second.currency) {
+                                alert("Você não pode selecionar o mesmo valor");
+                                return;
+                            }
+                            changeCurrency("first", "currency", e.target.value);
+                        }}
                     >
                         {currencyOptions.map((actualCurrency) => (
                             <option key={actualCurrency.currentCurrency}>
@@ -35,7 +40,9 @@ export default function CurrencyChange({
                         ))}
                     </select>
                 </div>
-                <img src={changeIcon} alt="icon with two arrows oposites" />
+                <div style={{ cursor: "pointer" }} onClick={reverseCurrency}>
+                    <img src={changeIcon} alt="icon with two arrows oposites" />
+                </div>
                 <div>
                     <div className={styles.currency}>
                         <input
@@ -54,13 +61,21 @@ export default function CurrencyChange({
                         <select
                             className={styles.exchange}
                             defaultValue={currency.second.currency}
-                            onChange={(e) =>
+                            onChange={(e) => {
+                                if (
+                                    e.target.value === currency.first.currency
+                                ) {
+                                    alert(
+                                        "Você não pode selecionar o mesmo valor"
+                                    );
+                                    return;
+                                }
                                 changeCurrency(
                                     "second",
                                     "currency",
                                     e.target.value
-                                )
-                            }
+                                );
+                            }}
                             id="second-currency-selector"
                         >
                             {currencyOptions.map((actualCurrency) => (
