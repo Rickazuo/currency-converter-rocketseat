@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
-import ApexCharts from "apexcharts";
 
 import Chart from "react-apexcharts";
 
-const HistoricChart = ({}) => {
-  const weeklyCurrency = [5.6, 5.28, 5.23, 5.42, 5.56, 5.47, 5.55];
+const HistoricChart = ({ chartHistoric }) => {
+  const randomNumber = (max, min) => {
+    return Math.random() * (max - min) + min;
+  };
+
+  const getRandomHistoric = (chartHistoric) => {
+    return parseFloat(
+      (parseFloat(chartHistoric) * randomNumber(1.2, 0.9)).toFixed(2)
+    );
+  };
+
+  const weeklyCurrency = [];
+
   const [series, setSeries] = useState([
     {
       name: "currency",
@@ -89,10 +99,10 @@ const HistoricChart = ({}) => {
     setSeries([
       {
         name: "$",
-        data: weeklyCurrency.weeklyCurrency,
+        data: [...Array(7)].map((_) => getRandomHistoric(chartHistoric)),
       },
     ]);
-  }, []);
+  }, [chartHistoric]);
 
   return (
     <div className="chart">
