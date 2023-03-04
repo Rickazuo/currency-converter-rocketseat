@@ -1,14 +1,20 @@
 import { useState } from "react";
+
 import styles from "./styles.module.css";
 
 import CurrencyChange from "../components/currencyChange/currencyChange";
 import HistoricChart from "../components/historicChart/historicChart";
 
 import switzerland from "../assets/switzerland.png";
+import unitedKingdom from "../assets/unitedKingdom.png";
+import brazil from "../assets/brazil.png";
+import europeanUnion from "../assets/europeanUnion.png";
+import unitedStates from "../assets/unitedStates.png";
 
 const currencyOptions = [
   {
     currentCurrency: "BRL",
+    img: brazil,
     rate: {
       USD: 5.1932,
       EUR: 5.5144,
@@ -19,6 +25,7 @@ const currencyOptions = [
   },
   {
     currentCurrency: "USD",
+    img: unitedStates,
     rate: {
       BRL: 0.192471,
       EUR: 1.0597,
@@ -29,6 +36,7 @@ const currencyOptions = [
   },
   {
     currentCurrency: "EUR",
+    img: europeanUnion,
     rate: {
       USD: 0.9436,
       BRL: 0.180928,
@@ -39,6 +47,7 @@ const currencyOptions = [
   },
   {
     currentCurrency: "GBP",
+    img: unitedKingdom,
     rate: {
       USD: 0.8308,
       EUR: 0.88442,
@@ -103,7 +112,6 @@ function HomePage() {
     setCurrency(tempCurrency);
   };
 
-  console.log(currency);
   return (
     <div className={styles.container}>
       <div>

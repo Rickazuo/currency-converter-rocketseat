@@ -1,7 +1,6 @@
 import styles from "./styles.module.css";
 import changeIcon from "../../assets/changeIcon.svg";
-
-import switzerland from "../../assets/switzerland.png";
+import CustomSelect from "../customSelect/customSelect";
 
 export default function CurrencyChange({
   currency,
@@ -17,27 +16,16 @@ export default function CurrencyChange({
           <input
             value={currency.first.value}
             className={styles.value}
-            placeholder="R$"
+            placeholder="$"
             onChange={(e) => changeCurrency("first", "value", e.target.value)}
           ></input>
           <div className={styles.divider}></div>
-          <select
-            className={styles.exchange}
+          <CustomSelect
             value={currency.first.currency}
             id="first-currency-selector"
-            onChange={(e) =>
-              changeCurrency("first", "currency", e.target.value)
-            }
-          >
-            {currencyOptions.map((actualCurrency) => (
-              <option key={actualCurrency.currentCurrency}>
-                <span>
-                  <img src={actualCurrency?.img} alt="" />
-                  {actualCurrency.currentCurrency}
-                </span>
-              </option>
-            ))}
-          </select>
+            onChange={(value) => changeCurrency("first", "currency", value)}
+            options={currencyOptions}
+          />
         </div>
         <div style={{ cursor: "pointer" }} onClick={reverseCurrency}>
           <img src={changeIcon} alt="icon with two arrows oposites" />
@@ -47,26 +35,20 @@ export default function CurrencyChange({
             <input
               value={currency.second.value}
               className={styles.value}
-              placeholder="R$"
+              placeholder="$"
               onChange={(e) =>
                 changeCurrency("second", "value", e.target.value)
               }
             />
             <div className={styles.divider}></div>
-            <select
-              className={styles.exchange}
+            <CustomSelect
               value={currency.second.currency}
               onChange={(e) =>
                 changeCurrency("second", "currency", e.target.value)
               }
               id="second-currency-selector"
-            >
-              {currencyOptions.map((actualCurrency) => (
-                <option key={actualCurrency.currentCurrency}>
-                  {actualCurrency.currentCurrency}
-                </option>
-              ))}
-            </select>
+              options={currencyOptions}
+            />
           </div>
         </div>
       </div>

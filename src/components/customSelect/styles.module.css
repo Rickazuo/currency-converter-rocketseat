@@ -1,0 +1,65 @@
+.customSelect {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  padding: 4px;
+
+  border: 1px transparent;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #ede9fe;
+}
+
+.selectSelected {
+  background: #ede9fe;
+  padding: 5px 10px;
+  cursor: pointer;
+  user-select: none;
+  display: flex; /* Add flexbox properties to align items */
+  align-items: center;
+}
+
+.selectSelected img {
+  margin-right: 10px; /* Move image to the right of the text */
+  border-radius: 50%; /* Add border radius to make the image circular */
+  width: 30px; /* Set image width */
+  height: 30px; /* Set image height */
+}
+
+.selectSelected:after {
+  content: "\25BC";
+  font-size: 10px;
+  color: #555;
+  margin-left: 5px;
+}
+
+.selectItems {
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 100%; /* Set width to match parent */
+  max-height: 200px;
+  overflow-y: auto;
+  margin-left: -4px;
+  background: #ede9fe;
+}
+
+.selectItem {
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+  display: flex; /* Add flexbox properties to align items */
+  align-items: center;
+}
+
+.selectItem img {
+  margin-right: 10px; /* Move image to the right of the text */
+  border-radius: 50%; /* Add border radius to make the image circular */
+  width: 30px; /* Set image width */
+  height: 30px; /* Set image height */
+}
+
+.selectItem:hover {
+  background-color: #c1b7ef;
+}
