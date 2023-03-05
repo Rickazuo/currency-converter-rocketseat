@@ -87,7 +87,7 @@ function HomePage() {
     const calculateCurrency = (valueToCalculate, currencyValue) =>
       value === "" || valueToCalculate === ""
         ? 0
-        : parseFloat(valueToCalculate) * currencyValue;
+        : parseFloat((parseFloat(valueToCalculate) * currencyValue).toFixed(4));
 
     if (slot === "first") {
       const index = currencyOptions.findIndex(
